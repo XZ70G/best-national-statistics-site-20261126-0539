@@ -1,0 +1,257 @@
+/* Australia by the Numbers — one stylesheet for the whole site.
+   Deep green and warm ochre on paper white: the colours of a government
+   statistical release, kept readable at small sizes and on a phone. */
+
+:root {
+  --ink: #1d2733;
+  --muted: #5a6470;
+  --green: #0b6e4f;
+  --green-dark: #08543c;
+  --ochre: #c98a1b;
+  --paper: #fdfcf8;
+  --card: #ffffff;
+  --line: #e3e7ea;
+  --nav-bg: #0b3d2e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header and navigation */
+.site-header {
+  background: var(--nav-bg);
+  color: #fff;
+}
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 28px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.brand-mark {
+  display: inline-block;
+  background: var(--ochre);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 7px;
+  border-radius: 4px;
+  margin-right: 9px;
+  vertical-align: 2px;
+}
+#main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+#main-nav a {
+  color: #d7e5dd;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+#main-nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
+#main-nav a.current {
+  color: #fff;
+  background: var(--green);
+  font-weight: 700;
+}
+
+/* Page body */
+main { padding: 28px 20px 48px; }
+h1 {
+  font-size: 34px;
+  line-height: 1.15;
+  margin: 4px 0 10px;
+  color: var(--green-dark);
+}
+h2 {
+  font-size: 23px;
+  margin: 36px 0 8px;
+  color: var(--green-dark);
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 6px;
+}
+.intro { font-size: 19px; color: #33404d; margin: 0 0 22px; }
+p { margin: 0 0 14px; }
+a { color: var(--green); }
+a:hover { color: var(--green-dark); }
+
+/* Headline stat cards */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 22px 0 8px;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+  border-radius: 8px;
+  padding: 14px 16px 12px;
+}
+.stat-value {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 4px;
+  color: var(--green-dark);
+}
+.stat-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.stat-detail {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Charts */
+.chart {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 18px 8px;
+  margin: 14px 0;
+}
+.chart svg { display: block; width: 100%; height: auto; }
+
+/* Sort controls */
+.controls { margin: 14px 0 4px; font-family: Arial, Helvetica, sans-serif; }
+.controls button {
+  font: inherit;
+  font-size: 14px;
+  padding: 7px 14px;
+  margin-right: 8px;
+  border: 1px solid var(--green);
+  border-radius: 20px;
+  background: #fff;
+  color: var(--green);
+  cursor: pointer;
+}
+.controls button:hover { background: #e8f2ed; }
+.controls button.active { background: var(--green); color: #fff; }
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  background: var(--card);
+}
+.data-table th, .data-table td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+}
+.data-table th {
+  background: #eef3f0;
+  color: var(--green-dark);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table tr.total-row td { font-weight: 700; background: #f7f3e8; }
+
+/* Lists */
+.topic-list, .source-list { padding-left: 22px; }
+.topic-list li, .source-list li { margin-bottom: 8px; }
+.topic-list a { font-weight: 700; }
+.legend { list-style: none; padding: 0; margin: 6px 0 14px; font-size: 15px; }
+.legend li { margin-bottom: 4px; }
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: -1px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  margin: 6px 0;
+}
+.button:hover { background: var(--green-dark); color: #fff; }
+
+.source-note {
+  font-size: 13.5px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 28px;
+}
+
+/* Footer */
+.site-footer {
+  background: #eef3f0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--muted);
+}
+.site-footer .wrap { padding-top: 18px; padding-bottom: 18px; }
+.site-footer p { margin: 0 0 6px; }
+
+/* Phone layout */
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  h1 { font-size: 27px; }
+  h2 { font-size: 20px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .stat-value { font-size: 24px; }
+  .brand { font-size: 18px; }
+  #main-nav { font-size: 14px; }
+  #main-nav a { padding: 5px 7px; }
+  main { padding-top: 20px; }
+  .chart { padding: 10px 8px 4px; }
+  .data-table { font-size: 13.5px; }
+  .data-table th, .data-table td { padding: 7px 8px; }
+}
+@media (max-width: 400px) {
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .stat-value { font-size: 21px; }
+}
